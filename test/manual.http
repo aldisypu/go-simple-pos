@@ -1,0 +1,30 @@
+### Create category
+POST http://localhost:3000/api/categories/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "food"
+}
+
+### Get all category
+GET http://localhost:3000/api/categories/
+Accept: application/json
+
+### Get detail category
+GET http://localhost:3000/api/categories/{{categoryId}}
+Content-Type: application/json
+Accept: application/json
+
+### Update category
+PUT http://localhost:3000/api/categories/{{categoryId}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "drink"
+}
+
+### Delete category
+DELETE http://localhost:3000/api/categories/{{categoryId}}
+Accept: application/json

@@ -1,0 +1,633 @@
+openapi: 3.0.3
+info:
+  title: Go Simple POS RESTful API
+  description: API Spec for Go Simple POS RESTful API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/
+paths:
+  /api/categories:
+    post:
+      tags:
+        - Category API
+      description: Create new category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Success create new category
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    get:
+      tags:
+        - Category API
+      description: Get all categories
+      responses:
+        '200':
+          description: Success get list of categories
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        created_at:
+                          type: number
+                        updated_at:
+                          type: number
+
+  /api/categories/{categoryId}:
+    get:
+      tags:
+        - Category API
+      description: Get category by id
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success get category
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    put:
+      tags:
+        - Category API
+      description: Update category by id
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Success update category
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    delete:
+      tags:
+        - Category API
+      description: Delete category by id
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success delete category
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: boolean
+
+  /api/products:
+    post:
+      tags:
+        - Product API
+      description: Create new product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: number
+                category_id:
+                  type: string
+      responses:
+        '200':
+          description: Success create new product
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      description:
+                        type: string
+                      price:
+                        type: number
+                      stock:
+                        type: number
+                      category_id:
+                        type: string
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    get:
+      tags:
+        - Product API
+      description: Get all products
+      responses:
+        '200':
+          description: Success get list of products
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        description:
+                          type: string
+                        price:
+                          type: number
+                        stock:
+                          type: number
+                        category_id:
+                          type: string
+                        created_at:
+                          type: number
+                        updated_at:
+                          type: number
+
+  /api/products/{productId}:
+    get:
+      tags:
+        - Product API
+      description: Get product by id
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success get product
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      description:
+                        type: string
+                      price:
+                        type: number
+                      stock:
+                        type: number
+                      category_id:
+                        type: string
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    put:
+      tags:
+        - Product API
+      description: Update product by id
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: number
+                category_id:
+                  type: string
+      responses:
+        '200':
+          description: Success update product
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      description:
+                        type: string
+                      price:
+                        type: number
+                      stock:
+                        type: number
+                      category_id:
+                        type: string
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    delete:
+      tags:
+        - Product API
+      description: Delete product by id
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success delete product
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: boolean
+
+  /api/sales:
+    post:
+      tags:
+        - Sale API
+      description: Create new sale
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                details:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      product_id:
+                        type: string
+                      quantity:
+                        type: number
+      responses:
+        '200':
+          description: Success create new sale
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      sale_date:
+                        type: number
+                      total:
+                        type: number
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    get:
+      tags:
+        - Sale API
+      description: Get all sales
+      responses:
+        '200':
+          description: Success get list of sales
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        sale_date:
+                          type: number
+                        total:
+                          type: number
+                        created_at:
+                          type: number
+                        updated_at:
+                          type: number
+
+  /api/sales/{saleId}:
+    get:
+      tags:
+        - Sale API
+      description: Get sale by id
+      parameters:
+        - name: saleId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success get sale
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      sale_date:
+                        type: number
+                      total:
+                        type: number
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    delete:
+      tags:
+        - Sale API
+      description: Delete sale by id
+      parameters:
+        - name: saleId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success delete sale
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: boolean
+
+  /api/sales/{saleid}/details:
+    get:
+      tags:
+        - Sale Detail API
+      description: Get all sales details by saleId
+      parameters:
+        - name: saleId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success get list of sales details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        sale_id:
+                          type: string
+                        product_id:
+                          type: string
+                        quantity:
+                          type: number
+                        price:
+                          type: number
+                        created_at:
+                          type: number
+                        updated_at:
+                          type: number
+
+  /api/sales/{saleId}/details/detailId:
+    get:
+      tags:
+        - Sale Detail API
+      description: Get sale detail by id
+      parameters:
+        - name: saleId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: detailId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success get sale
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      sale_id:
+                        type: string
+                      product_id:
+                        type: string
+                      quantity:
+                        type: number
+                      price:
+                        type: number
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    put:
+      tags:
+        - Sale Detail API
+      description: Update sale detail by id
+      parameters:
+        - name: saleId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: detailId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: number
+      responses:
+        '200':
+          description: Success update sale detail
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      sale_id:
+                        type: string
+                      product_id:
+                        type: string
+                      quantity:
+                        type: number
+                      price:
+                        type: number
+                      created_at:
+                        type: number
+                      updated_at:
+                        type: number
+
+    delete:
+      tags:
+        - Sale Detail API
+      description: Delete sale detail by id
+      parameters:
+        - name: saleId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: detailId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success delete sale detail
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: boolean

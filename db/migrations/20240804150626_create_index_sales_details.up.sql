@@ -1,0 +1,1 @@
+CREATE INDEX IF NOT EXISTS idx_sales_details_saleid ON sales_details(sale_id);
